@@ -2,6 +2,7 @@ package ViewModels;
 
 public class SPCT_Response {
     private String tenSP;
+    private String hinhAnh;
     private String loai;
     private String size;
     private double donGia;
@@ -9,8 +10,9 @@ public class SPCT_Response {
     public SPCT_Response() {
     }
 
-    public SPCT_Response(String tenSP, String loai, String size, double donGia) {
+    public SPCT_Response(String tenSP, String hinhAnh, String loai, String size, double donGia) {
         this.tenSP = tenSP;
+        this.hinhAnh = hinhAnh;
         this.loai = loai;
         this.size = size;
         this.donGia = donGia;
@@ -22,6 +24,14 @@ public class SPCT_Response {
 
     public void setTenSP(String tenSP) {
         this.tenSP = tenSP;
+    }
+
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
     }
 
     public String getLoai() {
@@ -47,6 +57,8 @@ public class SPCT_Response {
     public void setDonGia(double donGia) {
         this.donGia = donGia;
     }
-
     
+    public Object[] getData() {
+        return new Object[]{tenSP, hinhAnh,loai, size, donGia};
+    }
 }

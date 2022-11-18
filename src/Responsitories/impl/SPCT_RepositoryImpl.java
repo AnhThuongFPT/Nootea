@@ -13,19 +13,18 @@ public class SPCT_RepositoryImpl implements SPCT_Repository{
     @Override
     public List<SPCT_Response> getALL() {
         List<SPCT_Response> listSPCT = new ArrayList<>();
-        String sql = "SELECT MASP, SanPham.Ten 'tenSP', kichThuoc, LoaiSanPham.Ten 'tenLoai', donGia, trangThai\n" +
-                     "[donGia], [moTa], [trangThai] FROM [dbo].[SanPhamChiTiet] join SanPham on SanPhamChiTiet.IDSP = SanPham.Id\n" +
+        String sql = "SELECT SanPham.Ten 'tenSP', hinhAnh, kichThuoc, LoaiSanPham.Ten 'tenLoai', donGia\n" +
+                     "FROM [dbo].[SanPhamChiTiet] join SanPham on SanPhamChiTiet.IDSP = SanPham.Id\n" +
                      "join LoaiSanPham on SanPhamChiTiet.IDLSP = LoaiSanPham.Id";
         ResultSet rs = JDBC_Helper.selectTongQuat(sql);
         try {
             while (rs.next()) {           
                 SPCT_Response spct = new SPCT_Response();
-                spct.setmaSP(rs.getString("MASP"));
                 spct.setTenSP(rs.getString("tenSP"));
                 spct.setSize(rs.getString("kichThuoc"));
                 spct.setLoai(rs.getString("tenLoai"));
                 spct.setDonGia(rs.getDouble("donGia"));
-                spct.setTrangThai(rs.getString("trangThai"));
+                spct.setHinhAnh(rs.getString("hinhAnh"));
                 listSPCT.add(spct);
             }
             return listSPCT;
