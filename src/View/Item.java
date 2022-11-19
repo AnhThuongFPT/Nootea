@@ -4,6 +4,7 @@ import ViewModels.SPCT_Response;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.RenderingHints;
 import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
@@ -32,12 +33,13 @@ public class Item extends javax.swing.JPanel {
     }
     public void setData(SPCT_Response data) {
         this.data = data;   
-        ImageIcon img = new ImageIcon(data.getHinhAnh());
-        hinhAnh.setImage(img);
+        Image img = new ImageIcon("./src/Image/" + data.getHinhAnh()).getImage();
+        hinhAnh.setImage(new ImageIcon(img));
         lbTenSP.setText(data.getTenSP());
         lbLoaiSP.setText(data.getLoai());
         DecimalFormat df = new DecimalFormat("###,###.##");
         lbDonGia.setText(df.format(data.getDonGia()));
+        lbSize.setText(data.getSize());
     }
 
     @Override
@@ -70,6 +72,7 @@ public class Item extends javax.swing.JPanel {
 
         lbDonGia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbDonGia.setForeground(new java.awt.Color(76, 76, 76));
+        lbDonGia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbDonGia.setText("0 VNÐ");
 
         lbLoaiSP.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -81,6 +84,7 @@ public class Item extends javax.swing.JPanel {
         lbTenSP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbTenSP.setForeground(new java.awt.Color(76, 76, 76));
         lbTenSP.setText("Item name");
+        lbTenSP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         lbTenSP.setRequestFocusEnabled(false);
 
         lbSize.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -91,23 +95,17 @@ public class Item extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbLoaiSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbTenSP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(hinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 18, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(hinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbSize)
-                .addGap(29, 29, 29)
-                .addComponent(lbDonGia)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbLoaiSP, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbSize))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,13 +118,10 @@ public class Item extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hinhAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbDonGia)
-                        .addContainerGap(17, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbSize))))
+                .addComponent(lbDonGia)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbSize)
+                .addGap(3, 3, 3))
         );
     }// </editor-fold>//GEN-END:initComponents
 
