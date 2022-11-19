@@ -1,4 +1,4 @@
-package View;
+package View.Swing;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

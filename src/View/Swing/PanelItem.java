@@ -1,6 +1,6 @@
-package View;
+package View.Swing;
 
-import component.WrapLayout;
+import View.Swing.WrapLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 

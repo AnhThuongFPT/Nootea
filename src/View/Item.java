@@ -62,9 +62,11 @@ public class Item extends javax.swing.JPanel {
 
         lbDonGia = new javax.swing.JLabel();
         lbLoaiSP = new javax.swing.JLabel();
-        hinhAnh = new View.PictureBox();
+        hinhAnh = new View.Swing.PictureBox();
         lbTenSP = new javax.swing.JLabel();
         lbSize = new javax.swing.JLabel();
+
+        setOpaque(false);
 
         lbDonGia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbDonGia.setForeground(new java.awt.Color(76, 76, 76));
@@ -130,7 +132,7 @@ public class Item extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private View.PictureBox hinhAnh;
+    private View.Swing.PictureBox hinhAnh;
     private javax.swing.JLabel lbDonGia;
     private javax.swing.JLabel lbLoaiSP;
     private javax.swing.JLabel lbSize;

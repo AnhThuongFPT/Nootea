@@ -1,4 +1,4 @@
-package component;
+package View.Swing;
 
 import java.awt.Component;
 import java.awt.Container;
