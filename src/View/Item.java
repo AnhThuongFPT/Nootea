@@ -2,6 +2,7 @@ package View;
 
 import ViewModels.SPCT_Response;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -24,6 +25,7 @@ public class Item extends javax.swing.JPanel {
     public Item() {
         initComponents();
         setOpaque(false);
+        setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
     
     private SPCT_Response data;
