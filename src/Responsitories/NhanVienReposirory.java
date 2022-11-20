@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package respository;
+package Responsitories;
 
-import domainModel.NhanVienModel;
+import DomainModels.NhanVienModel;
+import Utilities.Dbcontext;
 import java.util.ArrayList;
 import java.util.List;
-import viewModel.NhanVienViewModel;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
-import ulity.Dbcontext;
+
+import viewModels.NhanVienViewModel;
 
 /**
  *

@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ulity;
+package Utilities;
+
 import java.sql.*;
+
 /**
  *
  * @author tuyen
  */
 public class Dbcontext {
-    public static Connection getconnect(){
+
+    public static Connection getconnect() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String url = "jdbc:sqlserver://localhost\\LAPTOP-2VO24UNJ\\SQLEXPRESS:1433;databaseName=QLQ_NOOTEA";
@@ -22,6 +25,6 @@ public class Dbcontext {
             e.printStackTrace();
             return null;
         }
-        
+
     }
 }

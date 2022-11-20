@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service.impl;
+package Services.impl;
 
-import domainModel.ChucVuModel;
+import Responsitories.ChucVuRespository;
+import Services.ChucVuService;
+
 import java.util.List;
-import respository.ChucVuRespository;
-import service.ChucVuService;
-import viewModel.ChucVuViewModel;
+import viewModels.ChucVuViewModel;
 
 /**
  *

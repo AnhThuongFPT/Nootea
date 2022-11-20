@@ -5,13 +5,14 @@
  */
 package view;
 
-import domainModel.SanPham;
+import DomainModels.SanPham;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import service.SanPhamService;
-import service.impl.SanPhamServiceImpl;
+import Services.SanPhamService;
+import services.impl.SanPhamServiceImpl;
+
 import viewModel.SanPhamViewModel;
 
 /**

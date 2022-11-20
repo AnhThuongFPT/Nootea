@@ -5,7 +5,9 @@
  */
 package view;
 
-import domainModel.NhanVienModel;
+
+import DomainModels.NhanVienModel;
+import Services.ChucVuService;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,12 +15,13 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import service.ChucVuService;
-import service.NhanVienService;
-import service.impl.ChucVuServiceImpl;
-import service.impl.NhanVienServiceImpl;
-import viewModel.ChucVuViewModel;
-import viewModel.NhanVienViewModel;
+
+import Services.NhanVienService;
+import Services.impl.ChucVuServiceImpl;
+
+import Services.impl.NhanVienServiceImpl;
+import viewModels.ChucVuViewModel;
+import viewModels.NhanVienViewModel;
 
 /**
  *

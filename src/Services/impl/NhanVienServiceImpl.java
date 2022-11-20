@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package service.impl;
+package Services.impl;
 
-import domainModel.NhanVienModel;
+import DomainModels.NhanVienModel;
 import java.util.List;
-import respository.NhanVienReposirory;
-import service.NhanVienService;
-import viewModel.NhanVienViewModel;
+import Responsitories.NhanVienReposirory;
+import Services.NhanVienService;
+import viewModels.NhanVienViewModel;
+
 
 /**
  *

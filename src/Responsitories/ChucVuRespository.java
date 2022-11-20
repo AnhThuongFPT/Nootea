@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package respository;
+package Responsitories;
 
-import domainModel.ChucVuModel;
+import Utilities.Dbcontext;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import ulity.Dbcontext;
-import viewModel.ChucVuViewModel;
+
+import viewModels.ChucVuViewModel;
 
 /**
  *
