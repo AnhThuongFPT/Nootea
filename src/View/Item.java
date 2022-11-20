@@ -25,7 +25,7 @@ public class Item extends javax.swing.JPanel {
     public Item() {
         initComponents();
         setOpaque(false);
-        setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
     }
     
     private SPCT_Response data;
