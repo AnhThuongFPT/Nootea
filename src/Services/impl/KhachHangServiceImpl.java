@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Service.impl;
+package Services.impl;
 
 import DomainModels.KhachHangModel;
-import Repository.KhachHangReposistory;
-import Service.KhachHangService;
+import Responsitories.impl.KhachHangReposistory;
+import Services.KhachHangService;
 import ViewModels.KhachHangViewModel;
 import java.util.List;
 

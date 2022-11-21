@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Repository;
+package Responsitories.impl;
 
 import DomainModels.KhachHangModel;
+import Utilities.JDBC_Helper;
 import Utilities.jdbcHelper;
 import ViewModels.KhachHangViewModel;
 import java.sql.ResultSet;
