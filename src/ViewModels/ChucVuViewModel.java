@@ -12,7 +12,7 @@ package viewModels;
 public class ChucVuViewModel {
 
     private String id;
-    private String manv;
+    private String macv;
     private String tenchucvu;
 
     public ChucVuViewModel() {
@@ -20,7 +20,7 @@ public class ChucVuViewModel {
 
     public ChucVuViewModel(String id, String manv, String tenchucvu) {
         this.id = id;
-        this.manv = manv;
+        this.macv = manv;
         this.tenchucvu = tenchucvu;
     }
 
@@ -28,12 +28,12 @@ public class ChucVuViewModel {
         return id;
     }
 
-    public String getManv() {
-        return manv;
+    public String getMacv() {
+        return macv;
     }
 
     public void setManv(String manv) {
-        this.manv = manv;
+        this.macv = manv;
     }
 
     public void setId(String id) {
@@ -47,12 +47,5 @@ public class ChucVuViewModel {
     public void setTenchucvu(String tenchucvu) {
         this.tenchucvu = tenchucvu;
     }
-
-    @Override
-    public String toString() {
-        return "ChucVuViewModel{" + "id=" + id + ", manv=" + manv + ", tenchucvu=" + tenchucvu + '}';
-    }
-
-    
 
 }

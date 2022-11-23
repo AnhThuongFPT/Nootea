@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domainModel;
+package DomainModels;
 
 /**
  *
  * @author tuyen
  */
 public class ChucVuModel {
+
     private String id;
     private String macv;
     private String tenchucvu;
@@ -46,9 +47,5 @@ public class ChucVuModel {
     public void setTenchucvu(String tenchucvu) {
         this.tenchucvu = tenchucvu;
     }
-    
 
-
-    
-    
 }
