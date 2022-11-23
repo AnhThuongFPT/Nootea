@@ -17,6 +17,7 @@ import viewModels.NhanVienViewModel;
 public interface NhanVienService {
     public List<NhanVienViewModel> getallnv();
     public NhanVienViewModel getnvbyma(String ma);
+    public NhanVienModel getnvbytk(String tk);
     public int add(NhanVienModel nv);
     public String update(String id, NhanVienModel nv);
     public String delete(String id);

@@ -60,4 +60,9 @@ public class NhanVienServiceImpl implements NhanVienService {
         }
     }
 
+    @Override
+    public NhanVienModel getnvbytk(String tk) {
+        return nvimpl.getnvbytk(tk);
+    }
+
 }
