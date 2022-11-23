@@ -301,17 +301,8 @@ public class QlChucVuView extends javax.swing.JFrame {
                 String tencv = tblChucVu.getValueAt(rows, 1).toString();
                 for (NhanVienViewModel x : nv1) {
                     if (x.getTenchucvu().equalsIgnoreCase(tencv)) {
-                        int choice1 = JOptionPane.showConfirmDialog(this, "Đã có nhân viên có chức vụ đó, bạn có muốn xóa ?", "Xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                        if (choice1 == JOptionPane.YES_OPTION) {
-                            nv.delete(x.getId());
-
-                            cvimpl.delete(txtId.getText());
-                            JOptionPane.showMessageDialog(this, "Đã xóa");
-                            filltable();
-                            return;
-                        } else {
-                            return;
-                        }
+                        JOptionPane.showMessageDialog(this, "Đã có nhân viên có mã đó, không thể xóa");
+                        return;
                     }
                 }
                 cvimpl.delete(txtId.getText());
