@@ -9,7 +9,8 @@ import DomainModels.SanPham;
 import java.util.List;
 import Responsitories.SanPhamRepository;
 import Services.SanPhamService;
-import viewModel.SanPhamViewModel;
+import ViewModels.SanPhamViewModel;
+import java.util.ArrayList;
 
 /**
  *
@@ -56,6 +57,11 @@ public class SanPhamServiceImpl implements SanPhamService{
         }else{
             return "Xóa thất bại";
         }
+    }
+
+    @Override
+    public ArrayList<SanPhamViewModel> getSPKM() {
+        return sp.getSPKM();
     }
     
 }

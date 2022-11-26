@@ -7,7 +7,8 @@ package Services;
 
 import DomainModels.SanPham;
 import java.util.List;
-import viewModel.SanPhamViewModel;
+import ViewModels.SanPhamViewModel;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,4 +20,5 @@ public interface SanPhamService {
     public int add(SanPham sp);
     public String update(String id, SanPham sp);
     public String delete(String id);
+    public ArrayList<SanPhamViewModel> getSPKM();
 }

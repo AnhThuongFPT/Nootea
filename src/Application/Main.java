@@ -4,15 +4,9 @@
  */
 package Application;
 
-import View.BanHang;
-import View.QLKhuyenMai;
-
 
 public class Main {
     public static void main(String[] args) {
-//        BanHang bh=new BanHang();
-//        bh.setVisible(true);
-            QLKhuyenMai qlkm=new QLKhuyenMai();
-            qlkm.setVisible(true);
+
     }
 }

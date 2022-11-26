@@ -17,10 +17,12 @@ public class TrangChu extends javax.swing.JFrame {
        menuKhuyenMai.setBackground(DefaultColor);
        menuThongKe.setBackground(DefaultColor);
        menuThoat.setBackground(DefaultColor);
-       BanHang bh = new BanHang();
-       jDesktopPanel.removeAll();
-       jDesktopPanel.add(bh).setVisible(true);
-       
+//       BanHang bh = new BanHang();
+//       jDesktopPanel.removeAll();
+//       jDesktopPanel.add(bh).setVisible(true);
+        QLKhuyenMai qlkm= new QLKhuyenMai();
+        jDesktopPanel.removeAll();
+        jDesktopPanel.add(qlkm).setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -37,7 +39,7 @@ public class TrangChu extends javax.swing.JFrame {
         menuSanPham = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         menuKhuyenMai = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        lblKhuyenMai = new javax.swing.JLabel();
         menuNhanVien = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         menuKhachHang = new javax.swing.JPanel();
@@ -155,22 +157,22 @@ public class TrangChu extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setBackground(new java.awt.Color(13, 36, 51));
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-sale-price-tag-30.png"))); // NOI18N
-        jLabel12.setText("Khuyến mại");
+        lblKhuyenMai.setBackground(new java.awt.Color(13, 36, 51));
+        lblKhuyenMai.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblKhuyenMai.setForeground(new java.awt.Color(255, 255, 255));
+        lblKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblKhuyenMai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/icons8-sale-price-tag-30.png"))); // NOI18N
+        lblKhuyenMai.setText("Khuyến mại");
 
         javax.swing.GroupLayout menuKhuyenMaiLayout = new javax.swing.GroupLayout(menuKhuyenMai);
         menuKhuyenMai.setLayout(menuKhuyenMaiLayout);
         menuKhuyenMaiLayout.setHorizontalGroup(
             menuKhuyenMaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+            .addComponent(lblKhuyenMai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
         );
         menuKhuyenMaiLayout.setVerticalGroup(
             menuKhuyenMaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+            .addComponent(lblKhuyenMai, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
         );
 
         menuNhanVien.setBackground(new java.awt.Color(13, 36, 51));
@@ -495,7 +497,6 @@ public class TrangChu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPanel;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -505,6 +506,7 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblKhuyenMai;
     private javax.swing.JPanel menuBanHang;
     private javax.swing.JPanel menuHoaDon;
     private javax.swing.JPanel menuKhachHang;

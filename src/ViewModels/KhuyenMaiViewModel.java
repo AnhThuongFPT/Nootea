@@ -109,6 +109,16 @@ public class KhuyenMaiViewModel {
         this.moTa = moTa;
     }
 
-   
+    public String trangThai(){
+        if(this.trangThai==0){
+            return "Đang áp dụng";
+        }
+        else if(this.trangThai==1){
+            return "Chưa áp dụng";
+        }
+        else{
+            return "Hết hạn";
+        }
+    }
     
 }

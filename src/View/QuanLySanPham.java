@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import Services.SanPhamService;
 import services.impl.SanPhamServiceImpl;
 
-import viewModel.SanPhamViewModel;
+import ViewModels.SanPhamViewModel;
 
 /**
  *
