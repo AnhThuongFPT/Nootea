@@ -5,7 +5,6 @@
  */
 package view;
 
-
 import DomainModels.NhanVienModel;
 import Services.ChucVuService;
 import java.awt.Color;
@@ -49,8 +48,8 @@ public class QlNhanVienView extends javax.swing.JFrame {
         jPanel2.setBackground(Color.yellow);
         tblNv.setBackground(Color.ORANGE);
         rdoNam.setBackground(Color.pink);
-        RdoNu.setBackground(Color.pink);
-        
+        rdoNu.setBackground(Color.pink);
+
         cbbTrangThai.removeAllItems();
         cbbTrangThai.addItem("Hoạt động");
         cbbTrangThai.addItem("Đang nghỉ");
@@ -62,47 +61,49 @@ public class QlNhanVienView extends javax.swing.JFrame {
         cbbloccv();
         filltable();
     }
-    public boolean validate2(){
-        if(txtManv.getText().trim().equals("")){
+
+    public boolean validate2() {
+        if (txtManv.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Mã nv không được bỏ trống");
             txtManv.requestFocus();
             return false;
         }
-        if(txtTk.getText().trim().equals("")){
+        if (txtTk.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "tk không được bỏ trống");
             txtTk.requestFocus();
             return false;
         }
-        if(new String(txtMk.getPassword()).trim().equals("")){
+        if (new String(txtMk.getPassword()).trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Mật khẩu không được bỏ trống");
             txtMk.requestFocus();
             return false;
         }
-        if(txtHoTen.getText().trim().equals("")){
+        if (txtHoTen.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Họ tên không được bỏ trống");
             txtHoTen.requestFocus();
             return false;
         }
-        
-        if(txtNgaySinh.getText().trim().equals("")){
+
+        if (txtNgaySinh.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Ngày sinh không được bỏ trống");
             txtNgaySinh.requestFocus();
             return false;
         }
-       
-        if(txtSdt.getText().trim().equals("")){
+
+        if (txtSdt.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Sdt không được bỏ trống");
             txtManv.requestFocus();
             return false;
         }
-        if(txtDiaChi.getText().trim().equals("")){
+        if (txtDiaChi.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(this, "Địa chỉ không được bỏ trống");
             txtDiaChi.requestFocus();
             return false;
         }
-        
+
         return true;
     }
+
     public void cbbcv() {
         cbbcv = (DefaultComboBoxModel<String>) this.cbbChucVu.getModel();
         cv = cvimpl.getallcv();
@@ -112,7 +113,6 @@ public class QlNhanVienView extends javax.swing.JFrame {
             cbbcv.addElement(x.getTenchucvu());
         }
     }
-    
 
     public void cbbloccv() {
         cbbloccv = (DefaultComboBoxModel<String>) this.cbbLocCv.getModel();
@@ -164,7 +164,7 @@ public class QlNhanVienView extends javax.swing.JFrame {
         txtDiaChi = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         rdoNam = new javax.swing.JRadioButton();
-        RdoNu = new javax.swing.JRadioButton();
+        rdoNu = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
         cbbChucVu = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
@@ -217,8 +217,8 @@ public class QlNhanVienView extends javax.swing.JFrame {
         buttonGroup1.add(rdoNam);
         rdoNam.setText("Nam");
 
-        buttonGroup1.add(RdoNu);
-        RdoNu.setText("Nữ");
+        buttonGroup1.add(rdoNu);
+        rdoNu.setText("Nữ");
 
         jLabel10.setText("Chức vụ");
 
@@ -292,7 +292,7 @@ public class QlNhanVienView extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(rdoNam, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RdoNu, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rdoNu, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(242, 242, 242))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,7 +350,7 @@ public class QlNhanVienView extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(rdoNam)
-                            .addComponent(RdoNu)))
+                            .addComponent(rdoNu)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -534,7 +534,7 @@ public class QlNhanVienView extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1118, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1139, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -563,16 +563,14 @@ public class QlNhanVienView extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         int choice = JOptionPane.showConfirmDialog(this, "Có muốn thêm nhân viên", "Xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        
         if (choice == JOptionPane.YES_OPTION) {
-            if(nvimpl.add(getbyform()) != 0){
-                if(validate2()){
-                    JOptionPane.showMessageDialog(this, "Đã thêm nhân viên");
+            if(this.nvimpl.add(getbyform()) ==1){
+                JOptionPane.showMessageDialog(this, "Đã thêm");
                 filltable();
-                }else{
-                    return;
-                }
             }else{
                 return;
+                
             }
 
         } else {
@@ -654,7 +652,7 @@ public class QlNhanVienView extends javax.swing.JFrame {
         } else {
             return;
         }
-        
+
 
     }//GEN-LAST:event_cbbLocCvItemStateChanged
 
@@ -766,7 +764,6 @@ public class QlNhanVienView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton RdoNu;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiem;
@@ -796,6 +793,7 @@ public class QlNhanVienView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton rdoNam;
+    private javax.swing.JRadioButton rdoNu;
     private javax.swing.JTable tblNv;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtHoTen;

@@ -7,6 +7,7 @@ package Responsitories;
 
 import DomainModels.NhanVienModel;
 import Utilities.Dbcontext;
+import Utilities.JDBC_Helper;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +25,8 @@ public class NhanVienReposirory {
     public List<NhanVienViewModel> getallnv() {
         List<NhanVienViewModel> nv = new ArrayList<>();
         String sql = "select nv.Id, nv.Manv, nv.taiKhoan, nv.matKhau, nv.hoTen, nv.gioiTinh, nv.ngaySinh, nv.SDT, nv.diaChi,cv.Ten, nv.trangThai  from NhanVien nv join ChucVu cv on nv.IDCV = cv.Id ";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql)) {
-            ResultSet rs = ppstm.executeQuery();
+        try {
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql);
             while (rs.next()) {
                 String id = rs.getString(1);
                 String manv = rs.getString(2);
@@ -53,11 +52,9 @@ public class NhanVienReposirory {
     public NhanVienViewModel getnvbyma(String ma) {
         NhanVienViewModel nv = null;
         String sql = "select nv.Id, nv.Manv, nv.taiKhoan, nv.matKhau, nv.hoTen, nv.gioiTinh, nv.ngaySinh, nv.SDT, nv.diaChi,cv.Ten, nv.trangThai  from NhanVien nv join ChucVu cv on nv.IDCV = cv.Id where nv.Manv = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql)) {
-            ppstm.setObject(1, ma);
-            ResultSet rs = ppstm.executeQuery();
+        try {
+
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, ma);
             while (rs.next()) {
                 String iD = rs.getString(1);
                 String manv = rs.getString(2);
@@ -83,11 +80,9 @@ public class NhanVienReposirory {
     public NhanVienModel getnvbyma2(String ma) {
         NhanVienModel nv = null;
         String sql = "select Id, manv, taiKhoan, matKhau, hoTen, gioiTinh, ngaySinh, SDT, diaChi, IDCV, trangThai from NhanVien where manv = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql)) {
-            ppstm.setObject(1, ma);
-            ResultSet rs = ppstm.executeQuery();
+        try {
+
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, ma);
             while (rs.next()) {
                 String iD = rs.getString(1);
                 String manv = rs.getString(2);
@@ -109,16 +104,13 @@ public class NhanVienReposirory {
             return null;
         }
     }
-    
 
     public NhanVienModel getnvbytk(String tk) {
         NhanVienModel nv = null;
         String sql = "select Id, manv, taiKhoan, matKhau, hoTen, gioiTinh, ngaySinh, SDT, diaChi, IDCV, trangThai from NhanVien where taikhoan = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql)) {
-            ppstm.setObject(1, tk);
-            ResultSet rs = ppstm.executeQuery();
+        try {
+
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, tk);
             while (rs.next()) {
                 String iD = rs.getString(1);
                 String manv = rs.getString(2);
@@ -169,64 +161,19 @@ public class NhanVienReposirory {
             return false;
         } else {
             String sql = "insert into NhanVien(Manv, taiKhoan, matKhau, hoTen, gioiTinh, ngaySinh, SDT, diaChi, IDCV, trangThai) values (?,?,?,?,?,?,?,?,?,?)";
-            try (
-                    Connection con = Dbcontext.getconnect();
-                    PreparedStatement ppstm = con.prepareStatement(sql);) {
-                ppstm.setObject(1, nv.getManv());
-                ppstm.setObject(2, nv.getTentk());
-                ppstm.setObject(3, nv.getMk());
-                ppstm.setObject(4, nv.getHoten());
-                ppstm.setObject(5, nv.getGioitinh());
-                ppstm.setObject(6, nv.getNgaysinh());
-                ppstm.setObject(7, nv.getSdt());
-                ppstm.setObject(8, nv.getDiachi());
-                ppstm.setObject(9, nv.getIdcv());
-                ppstm.setObject(10, nv.getTrangthai());
-
-                ppstm.executeUpdate();
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+            JDBC_Helper.updateTongQuat(sql, nv.getManv(), nv.getTentk(), nv.getMk(), nv.getHoten(), nv.getGioitinh(), nv.getNgaysinh(), nv.getSdt(), nv.getDiachi(), nv.getIdcv(), nv.getTrangthai());
+            return true;
         }
     }
 
-    public boolean update(String id, NhanVienModel nv) {
+    public int update(String id, NhanVienModel nv) {
         String sql = "update NhanVien set Manv = ?, taiKhoan = ?, matKhau = ?, hoTen = ?, gioiTinh = ?, ngaySinh =?, SDT = ?, diaChi = ?, IDCV = ?, trangThai = ? where Id = ? ";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, nv.getManv());
-            ppstm.setObject(2, nv.getTentk());
-            ppstm.setObject(3, nv.getMk());
-            ppstm.setObject(4, nv.getHoten());
-            ppstm.setObject(5, nv.getGioitinh());
-            ppstm.setObject(6, nv.getNgaysinh());
-            ppstm.setObject(7, nv.getSdt());
-            ppstm.setObject(8, nv.getDiachi());
-            ppstm.setObject(9, nv.getIdcv());
-            ppstm.setObject(10, nv.getTrangthai());
-            ppstm.setObject(11, id);
-            ppstm.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return JDBC_Helper.updateTongQuat(sql, nv.getManv(), nv.getTentk(), nv.getMk(), nv.getHoten(), nv.getGioitinh(), nv.getNgaysinh(), nv.getSdt(), nv.getDiachi(), nv.getIdcv(), nv.getTrangthai(), id);
+
     }
 
-    public boolean delete(String id) {
+    public int delete(String id) {
         String sql = "delete from NhanVien where Id = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, id);
-            ppstm.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return JDBC_Helper.updateTongQuat(sql, id);
     }
 }

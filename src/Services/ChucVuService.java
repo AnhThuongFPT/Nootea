@@ -22,7 +22,7 @@ public interface ChucVuService {
 
     public int add(ChucVuModel cv);
 
-    public String update(String id, ChucVuModel cv);
+    public int update(String id, ChucVuModel cv);
 
-    public String delete(String id);
+    public int delete(String id);
 }

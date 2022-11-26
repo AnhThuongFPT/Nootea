@@ -14,14 +14,17 @@ import java.util.List;
  * @author TUF
  */
 public interface KhachHangService {
-    List<KhachHangViewModel> getAll();
 
-    KhachHangModel getkhbyid(String id);
+    public List<KhachHangViewModel> getAll();
 
-    int add(KhachHangModel n);
+    public KhachHangModel getkhbyid(String id);
 
-    int update(KhachHangModel n);
+    public int add(KhachHangModel n);
 
-    int delete(String id);
+    public int update(KhachHangModel n);
+
+    public int delete(String id);
+
+    public KhachHangViewModel getkhbyma1(String ma);
 
 }

@@ -126,7 +126,7 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="rdoNam" min="-2" pref="93" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="RdoNu" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="rdoNu" min="-2" pref="93" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -204,7 +204,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="rdoNam" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="RdoNu" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rdoNu" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -330,7 +330,7 @@
             <Property name="text" type="java.lang.String" value="Nam"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="RdoNu">
+        <Component class="javax.swing.JRadioButton" name="rdoNu">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>

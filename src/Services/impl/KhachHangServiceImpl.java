@@ -6,6 +6,7 @@
 package Services.impl;
 
 import DomainModels.KhachHangModel;
+import Responsitories.NhanVienReposirory;
 import Responsitories.impl.KhachHangReposistory;
 import Services.KhachHangService;
 import ViewModels.KhachHangViewModel;
@@ -15,7 +16,7 @@ import java.util.List;
  *
  * @author TUF
  */
-public class KhachHangServiceImpl implements KhachHangService{
+public class KhachHangServiceImpl implements KhachHangService {
 
     @Override
     public List<KhachHangViewModel> getAll() {
@@ -24,12 +25,17 @@ public class KhachHangServiceImpl implements KhachHangService{
 
     @Override
     public KhachHangModel getkhbyid(String id) {
-       return KhachHangReposistory.getCTByMa(id);
+        return KhachHangReposistory.getCTByMa(id);
     }
 
     @Override
     public int add(KhachHangModel n) {
-        return KhachHangReposistory.add(n);
+        boolean check = KhachHangReposistory.add(n);
+        if (check) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     @Override
@@ -41,5 +47,10 @@ public class KhachHangServiceImpl implements KhachHangService{
     public int delete(String id) {
         return KhachHangReposistory.delete(id);
     }
-    
+
+    @Override
+    public KhachHangViewModel getkhbyma1(String ma) {
+        return KhachHangReposistory.getkhbyma1(ma);
+    }
+
 }

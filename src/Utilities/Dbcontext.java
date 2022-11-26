@@ -16,9 +16,9 @@ public class Dbcontext {
     public static Connection getconnect() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://localhost\\LAPTOP-2VO24UNJ\\SQLEXPRESS:1433;databaseName=QLQ_NOOTEA";
+            String url = "jdbc:sqlserver://localhost\\LAPTOP-2VO24UNJ\\SQLEXPRESS:1433;databaseName=NOOTEA";
             String user = "sa";
-            String pass = "dinhtuan";
+            String pass = "123456";
             Connection con = DriverManager.getConnection(url, user, pass);
             return con;
         } catch (Exception e) {

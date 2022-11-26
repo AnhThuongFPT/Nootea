@@ -14,9 +14,9 @@ import java.sql.SQLException;
  * @author TUF
  */
 public class DBConnect {
-    static String url="jdbc:sqlserver://localhost\\NGUYENSTEGENLAP\\SQLEXPRESS:1433;databaseName=QLQ_NOOTEA";
+    static String url="jdbc:sqlserver://localhost\\NGUYENSTEGENLAP\\SQLEXPRESS:1433;databaseName=NOOTEA";
      static String user="sa";
-      static String pass="dinhtuan";
+      static String pass="123456";
       
       static{
         try { 

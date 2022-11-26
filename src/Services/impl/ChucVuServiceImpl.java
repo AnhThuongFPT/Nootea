@@ -9,7 +9,6 @@ import DomainModels.ChucVuModel;
 import Responsitories.ChucVuRespository;
 import Services.ChucVuService;
 
-
 import java.util.List;
 import viewModels.ChucVuViewModel;
 
@@ -33,32 +32,17 @@ public class ChucVuServiceImpl implements ChucVuService {
 
     @Override
     public int add(ChucVuModel cv) {
-        boolean check = this.cv.add(cv);
-        if (check) {
-            return 0;
-        } else {
-            return 1;
-        }
+        return this.cv.add(cv);
     }
 
     @Override
-    public String update(String id, ChucVuModel cv) {
-        boolean check = this.cv.update(id, cv);
-        if (check) {
-            return "Update thành công";
-        } else {
-            return "Update thất bại";
-        }
+    public int update(String id, ChucVuModel cv) {
+        return this.cv.update(id, cv);
     }
 
     @Override
-    public String delete(String id) {
-        boolean check = this.cv.delete(id);
-        if (check) {
-            return "Xóa thành công";
-        } else {
-            return "Xóa thất bại";
-        }
+    public int delete(String id) {
+        return this.cv.delete(id);
     }
-
+    
 }

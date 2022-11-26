@@ -7,10 +7,13 @@ package Responsitories;
 
 import DomainModels.ChucVuModel;
 import Utilities.Dbcontext;
+import Utilities.JDBC_Helper;
+import Utilities.jdbcHelper;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import viewModels.ChucVuViewModel;
 
@@ -23,10 +26,9 @@ public class ChucVuRespository {
     public List<ChucVuViewModel> getallcv() {
         List<ChucVuViewModel> cv = new ArrayList<>();
         String sql = "select Id, MACV, Ten from ChucVu";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ResultSet rs = ppstm.executeQuery();
+        try {
+
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql);
             while (rs.next()) {
                 String id = rs.getString(1);
                 String macv = rs.getString(2);
@@ -44,11 +46,9 @@ public class ChucVuRespository {
     public ChucVuViewModel getcvbyma(String ma) {
         ChucVuViewModel cv = null;
         String sql = "select Id, MACV, Ten from ChucVu where MACV = ? ";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, ma);
-            ResultSet rs = ppstm.executeQuery();
+        try {
+
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, ma);
             while (rs.next()) {
                 String id = rs.getString(1);
                 String macv = rs.getString(2);
@@ -64,49 +64,54 @@ public class ChucVuRespository {
 
     }
 
-    public boolean add(ChucVuModel cv) {
+    public ChucVuModel getcvbyma1(String ma) {
+        ChucVuModel cv = null;
+        String sql = "select Id, MACV, Ten from ChucVu where MACV = ? ";
+        try {
+
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, ma);
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String macv = rs.getString(2);
+                String tencv = rs.getString(3);
+                cv = new ChucVuModel(id, macv, tencv);
+
+            }
+            return cv;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    public boolean checktrungma(String ma) {
+        if (getcvbyma1(ma) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int add(ChucVuModel cv) {
         String sql = "insert into ChucVu(MACV, Ten) values (?,?)";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, cv.getMacv());
-            ppstm.setObject(2, cv.getTenchucvu());
-            ppstm.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        if (checktrungma(cv.getMacv())) {
+            JOptionPane.showMessageDialog(null, "Đã tồn tại mã cv đó");
+            return 0;
+        } else {
+            return JDBC_Helper.updateTongQuat(sql, cv.getMacv(), cv.getTenchucvu());
         }
     }
 
-    public boolean update(String id, ChucVuModel cv) {
+    public int update(String id, ChucVuModel cv) {
         String sql = "update ChucVu set MACV = ?, Ten = ? where Id = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, cv.getMacv());
-            ppstm.setObject(2, cv.getTenchucvu());
-            ppstm.setObject(3, id);
-            ppstm.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return JDBC_Helper.updateTongQuat(sql, cv.getMacv(), cv.getTenchucvu(), id);
+
     }
 
-    public boolean delete(String id) {
+    public int delete(String id) {
         String sql = "delete from ChucVu where Id = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, id);
-            ppstm.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return JDBC_Helper.updateTongQuat(sql, id);
     }
 }
 

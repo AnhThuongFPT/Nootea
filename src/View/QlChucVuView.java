@@ -257,9 +257,10 @@ public class QlChucVuView extends javax.swing.JFrame {
         int choice = JOptionPane.showConfirmDialog(this, "Bạn có muốn thêm không", "Xác nhận", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (choice == JOptionPane.YES_OPTION) {
             if (validate2()) {
-                if (this.cvimpl.add(getbyform()) != 0) {
+                if (this.cvimpl.add(getbyform()) == 0) {
                     return;
                 } else {
+
                     JOptionPane.showMessageDialog(this, "Đã thêm");
                     filltable();
                 }
@@ -299,6 +300,7 @@ public class QlChucVuView extends javax.swing.JFrame {
             if (choice == JOptionPane.YES_OPTION) {
                 List<NhanVienViewModel> nv1 = nv.getallnv();
                 String tencv = tblChucVu.getValueAt(rows, 1).toString();
+
                 for (NhanVienViewModel x : nv1) {
                     if (x.getTenchucvu().equalsIgnoreCase(tencv)) {
                         JOptionPane.showMessageDialog(this, "Đã có nhân viên có mã đó, không thể xóa");

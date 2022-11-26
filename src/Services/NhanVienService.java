@@ -19,7 +19,7 @@ public interface NhanVienService {
     public NhanVienViewModel getnvbyma(String ma);
     public NhanVienModel getnvbytk(String tk);
     public int add(NhanVienModel nv);
-    public String update(String id, NhanVienModel nv);
-    public String delete(String id);
+    public int update(String id, NhanVienModel nv);
+    public int delete(String id);
     
 }
