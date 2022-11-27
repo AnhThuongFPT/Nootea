@@ -11,7 +11,8 @@ import java.util.Date;
  * @author TGDD
  */
 public class KhuyenMaiViewModel {
-
+    
+    private String idKM;
     private String maKM;
     private String tenKM;
     private String hinhThuc;
@@ -109,6 +110,16 @@ public class KhuyenMaiViewModel {
         this.moTa = moTa;
     }
 
-   
+    public String trangThai(){
+        if(this.trangThai==0){
+            return "Đang áp dụng";
+        }
+        else if(this.trangThai==1){
+            return "Chưa áp dụng";
+        }
+        else{
+            return "Hết hạn";
+        }
+    }
     
 }

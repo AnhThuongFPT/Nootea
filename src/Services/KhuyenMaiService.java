@@ -4,6 +4,7 @@
  */
 package Services;
 
+import DomainModels.SanPhamKhuyenMai;
 import ViewModels.KhuyenMaiViewModel;
 import java.util.ArrayList;
 
@@ -14,4 +15,12 @@ import java.util.ArrayList;
 public interface KhuyenMaiService {
 
     public ArrayList<KhuyenMaiViewModel> getAllKM();
+
+    public boolean add(KhuyenMaiViewModel kmvm);
+
+    public boolean update(KhuyenMaiViewModel kmvm, String maKM);
+
+    public boolean delete(String maKM);
+
+    public boolean addTableChung(SanPhamKhuyenMai spkm);
 }

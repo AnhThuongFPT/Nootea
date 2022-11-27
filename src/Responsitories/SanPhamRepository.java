@@ -6,10 +6,11 @@
 package Responsitories;
 
 import DomainModels.SanPham;
+import Utilities.DBConnection;
 import Utilities.Dbcontext;
 import java.util.ArrayList;
 import java.util.List;
-import viewModel.SanPhamViewModel;
+import ViewModels.SanPhamViewModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -42,6 +43,26 @@ public class SanPhamRepository {
         }
     }
 
+    public ArrayList<SanPhamViewModel> getSPKM() {
+        ArrayList<SanPhamViewModel> list = new ArrayList<>();
+        String sql = "select MASP, TenSP from SanPham";
+        try (
+                Connection con = DBConnection.getConnection();
+                PreparedStatement ppstm = con.prepareStatement(sql);) {
+            ResultSet rs = ppstm.executeQuery();
+            while (rs.next()) {
+                SanPhamViewModel spvm=new SanPhamViewModel();
+                spvm.setMasp(rs.getString("MaSP"));
+                spvm.setTensp(rs.getString("TenSP"));
+                list.add(spvm);
+            }
+            return list;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public SanPhamViewModel getspbyma(String ma) {
         SanPhamViewModel sp = null;
         String sql = "select id, MASP, Ten from SanPham where MASP = ?";

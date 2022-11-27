@@ -4,6 +4,7 @@
  */
 package Services.impl;
 
+import DomainModels.SanPhamKhuyenMai;
 import Responsitories.KhuyenMaiRepository;
 import Services.KhuyenMaiService;
 import ViewModels.KhuyenMaiViewModel;
@@ -19,6 +20,26 @@ public class KhuyenMaiServiceImpl implements KhuyenMaiService{
     @Override
     public ArrayList<KhuyenMaiViewModel> getAllKM() {
         return kmr.getAllKM();
+    }
+
+    @Override
+    public boolean add(KhuyenMaiViewModel kmvm) {
+        return kmr.add(kmvm);
+    }
+
+    @Override
+    public boolean update(KhuyenMaiViewModel kmvm, String maKM) {
+        return kmr.update(kmvm, maKM);
+    }
+
+    @Override
+    public boolean delete(String maKM) {
+        return kmr.delete(maKM);
+    }
+
+    @Override
+    public boolean addTableChung(SanPhamKhuyenMai spkm) {
+        return kmr.addTableChung(spkm);
     }
     
 }
