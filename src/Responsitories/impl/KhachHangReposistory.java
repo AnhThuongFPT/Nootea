@@ -70,6 +70,29 @@ public class KhachHangReposistory {
             return null;
         }
     }
+    public static KhachHangModel gettenkh(String ten){
+        KhachHangModel n = null;
+        ResultSet rs = null;
+        String sql = "select id,maKH,hoTen,gioiTinh,SDT,diaChi from khachHang where hoTen = ?";
+        rs = JDBC_Helper.selectTongQuat(sql, ten);
+
+        try {
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String maKH = rs.getString(2);
+                String hoTen = rs.getString(3);
+                String gioiTinh = rs.getString(4);
+                String sdt = rs.getString(5);
+                String diaChi = rs.getString(6);
+                n = new KhachHangModel(id, maKH, hoTen, gioiTinh, sdt, diaChi);
+            }
+            return n;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public static KhachHangViewModel getkhbyma1(String ma) {
         KhachHangViewModel n = null;

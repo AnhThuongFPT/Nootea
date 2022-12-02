@@ -19,6 +19,8 @@ public interface KhachHangService {
 
     public KhachHangModel getkhbyid(String id);
 
+    public KhachHangModel getkhbyten(String ten);
+
     public int add(KhachHangModel n);
 
     public int update(KhachHangModel n);

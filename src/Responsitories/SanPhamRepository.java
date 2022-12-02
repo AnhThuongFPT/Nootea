@@ -7,12 +7,13 @@ package Responsitories;
 
 import DomainModels.SanPham;
 import Utilities.Dbcontext;
+import Utilities.JDBC_Helper;
 import java.util.ArrayList;
 import java.util.List;
-import viewModel.SanPhamViewModel;
+
 import java.sql.*;
 import javax.swing.JOptionPane;
-
+import viewModels.SanPhamViewModel;
 
 /**
  *
@@ -22,16 +23,17 @@ public class SanPhamRepository {
 
     public List<SanPhamViewModel> getallsp() {
         List<SanPhamViewModel> sp = new ArrayList<>();
-        String sql = "select Id, MASP, Ten from SanPham";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ResultSet rs = ppstm.executeQuery();
+        String sql = "select ID, MaSP, TenSP, Gia, HinhAnh, TrangThai from SanPham";
+        try {
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql);
             while (rs.next()) {
                 String id = rs.getString(1);
                 String ma = rs.getString(2);
                 String tensp = rs.getString(3);
-                SanPhamViewModel sp2 = new SanPhamViewModel(id, ma, tensp);
+                double gia = rs.getDouble(4);
+                String hinhanh = rs.getString(5);
+                int trangthai = rs.getInt(6);
+                SanPhamViewModel sp2 = new SanPhamViewModel(id, ma, tensp, gia, hinhanh, trangthai);
                 sp.add(sp2);
             }
             return sp;
@@ -44,17 +46,41 @@ public class SanPhamRepository {
 
     public SanPhamViewModel getspbyma(String ma) {
         SanPhamViewModel sp = null;
-        String sql = "select id, MASP, Ten from SanPham where MASP = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, ma);
-            ResultSet rs = ppstm.executeQuery();
+        String sql = "select ID, MaSP, TenSP, Gia, HinhAnh, TrangThai from SanPham where MaSP = ?";
+        try {
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, ma);
             while (rs.next()) {
                 String id = rs.getString(1);
                 String mA = rs.getString(2);
-                String ten = rs.getString(3);
-                sp = new SanPhamViewModel(id, mA, ten);
+                String tensp = rs.getString(3);
+                double gia = rs.getDouble(4);
+                String hinhanh = rs.getString(5);
+                int trangthai = rs.getInt(6);
+                sp = new SanPhamViewModel(id, mA, tensp, gia, hinhanh, trangthai);
+
+            }
+            return sp;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public SanPham getspbyma1(String ma) {
+        SanPham sp = null;
+        String sql = "select ID, MaSP, TenSP, Gia, HinhAnh, TrangThai from SanPham where MaSP = ?";
+        try {
+            ResultSet rs = JDBC_Helper.selectTongQuat(sql, ma);
+            while (rs.next()) {
+                String id = rs.getString(1);
+                String mA = rs.getString(2);
+                String tensp = rs.getString(3);
+                double gia = rs.getDouble(4);
+                String hinhanh = rs.getString(5);
+                int trangthai = rs.getInt(6);
+                sp = new SanPham(id, mA, tensp, gia, hinhanh, trangthai);
+
             }
             return sp;
 
@@ -65,59 +91,32 @@ public class SanPhamRepository {
     }
 
     public boolean add(SanPham sp) {
-        String sql = "insert into SanPham (MASP, Ten) values (?,?)";
-        if(checktrungma(sp.getMaSP())){
+        String sql = "insert into SanPham ( MaSP, TenSP, Gia, HinhAnh, TrangThai)\n"
+                + "values (?,?,?,?,?)";
+        if (checktrungma(sp.getMaSP())) {
             JOptionPane.showMessageDialog(null, "Đã có sản phẩm đó");
             return false;
-        }else{
-            try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, sp.getMaSP());
-            ppstm.setObject(2, sp.getTen());
-            ppstm.executeUpdate();
+        } else {
+            JDBC_Helper.updateTongQuat(sql, sp.getMaSP(), sp.getTen(), sp.getGia(), sp.getHinhanh(), sp.getTrangthai());
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        }
-    }
-    public boolean checktrungma(String ma){
-        if(getspbyma(ma)==null){
-            return false;
-        }else{
-            return true;
-        }
-    }
-    public boolean update(String id, SanPham sp) {
-        String sql = "update SanPham set MASP = ?, Ten = ? where Id = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, sp.getMaSP());
-            ppstm.setObject(2, sp.getMaSP());
-            ppstm.setObject(3, id);
-            ppstm.executeUpdate();
-            return true;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
         }
     }
 
-    public boolean delete(String id) {
+    public boolean checktrungma(String ma) {
+        if (getspbyma(ma) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int update(String id, SanPham sp) {
+        String sql = "update SanPham set MaSP = ?, TenSP = ?, Gia = ?, HinhAnh = ?, TrangThai = ? where ID = ?";
+        return JDBC_Helper.updateTongQuat(sql, sp.getMaSP(), sp.getTen(), sp.getGia(), sp.getHinhanh(), sp.getTrangthai(), id);
+    }
+
+    public int delete(String id) {
         String sql = "delete from SanPham where Id = ?";
-        try (
-                Connection con = Dbcontext.getconnect();
-                PreparedStatement ppstm = con.prepareStatement(sql);) {
-            ppstm.setObject(1, id);
-            ppstm.executeUpdate();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+        return JDBC_Helper.updateTongQuat(sql, id);
     }
 }

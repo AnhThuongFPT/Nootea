@@ -9,13 +9,15 @@ import DomainModels.SanPham;
 import java.util.List;
 import Responsitories.SanPhamRepository;
 import Services.SanPhamService;
-import viewModel.SanPhamViewModel;
+
+import viewModels.SanPhamViewModel;
 
 /**
  *
  * @author tuyen
  */
-public class SanPhamServiceImpl implements SanPhamService{
+public class SanPhamServiceImpl implements SanPhamService {
+
     SanPhamRepository sp = new SanPhamRepository();
 
     @Override
@@ -31,31 +33,26 @@ public class SanPhamServiceImpl implements SanPhamService{
     @Override
     public int add(SanPham sp) {
         boolean check = this.sp.add(sp);
-        if(check){
+        if (check) {
             return 1;
-        }else{
+        } else {
             return 0;
         }
     }
 
     @Override
-    public String update(String id, SanPham sp) {
-        boolean check = this.sp.update(id, sp);
-        if(check){
-            return "Update thành công";
-        }else{
-            return "Update thất bại";
-        }
+    public int update(String id, SanPham sp) {
+        return this.sp.update(id, sp);
     }
 
     @Override
-    public String delete(String id) {
-        boolean check = this.sp.delete(id);
-        if(check){
-            return "Xóa thành công";
-        }else{
-            return "Xóa thất bại";
-        }
+    public int delete(String id) {
+        return this.sp.delete(id);
     }
-    
+
+    @Override
+    public SanPham getspbyma1(String ma) {
+        return this.sp.getspbyma1(ma);
+    }
+
 }

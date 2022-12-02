@@ -53,4 +53,9 @@ public class KhachHangServiceImpl implements KhachHangService {
         return KhachHangReposistory.getkhbyma1(ma);
     }
 
+    @Override
+    public KhachHangModel getkhbyten(String ten) {
+        return KhachHangReposistory.gettenkh(ten);
+    }
+
 }

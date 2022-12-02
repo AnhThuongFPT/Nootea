@@ -3,48 +3,79 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package viewModel;
+package viewModels;
 
 /**
  *
  * @author tuyen
  */
 public class SanPhamViewModel {
-    private String id;
-    private String masp;
-    private String tensp;
+
+    private String ID;
+    private String maSP;
+    private String ten;
+    private double gia;
+    private String hinhanh;
+    private int trangthai;
 
     public SanPhamViewModel() {
     }
 
-    public SanPhamViewModel(String id, String masp, String tensp) {
-        this.id = id;
-        this.masp = masp;
-        this.tensp = tensp;
+    public SanPhamViewModel(String ID, String maSP, String ten, double gia, String hinhanh, int trangthai) {
+        this.ID = ID;
+        this.maSP = maSP;
+        this.ten = ten;
+        this.gia = gia;
+        this.hinhanh = hinhanh;
+        this.trangthai = trangthai;
     }
 
-    public String getId() {
-        return id;
+    public String getID() {
+        return ID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
-    public String getMasp() {
-        return masp;
+    public String getMaSP() {
+        return maSP;
     }
 
-    public void setMasp(String masp) {
-        this.masp = masp;
+    public void setMaSP(String maSP) {
+        this.maSP = maSP;
     }
 
-    public String getTensp() {
-        return tensp;
+    public String getTen() {
+        return ten;
     }
 
-    public void setTensp(String tensp) {
-        this.tensp = tensp;
+    public void setTen(String ten) {
+        this.ten = ten;
     }
-    
+
+    public double getGia() {
+        return gia;
+    }
+
+    public void setGia(double gia) {
+        this.gia = gia;
+    }
+
+    public String getHinhanh() {
+        return hinhanh;
+    }
+
+    public void setHinhanh(String hinhanh) {
+        this.hinhanh = hinhanh;
+    }
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
+    }
+
 }

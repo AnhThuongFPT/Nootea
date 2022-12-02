@@ -1,26 +1,32 @@
 package View;
 
 import java.awt.Color;
+import view.QlNhanVienView;
 
 public class TrangChu extends javax.swing.JFrame {
+
     Color DefaultColor, ClickedColor;
+
     public TrangChu() {
         initComponents();
-        DefaultColor = new Color(13,36,51);
-        ClickedColor = new Color(240,151,57);
-        
-       menuBanHang.setBackground(ClickedColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
-       BanHang bh = new BanHang();
-       jDesktopPanel.removeAll();
-       jDesktopPanel.add(bh).setVisible(true);
-       
+        DefaultColor = new Color(13, 36, 51);
+        ClickedColor = new Color(240, 151, 57);
+
+        menuBanHang.setBackground(ClickedColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
+//       BanHang1 bh = new BanHang1();
+//       jDesktopPanel.disable();
+//       jDesktopPanel.add(bh).setVisible(true);
+//            QLKhuyenMai bh = new QLKhuyenMai();
+//           jDesktopPanel.removeAll();
+//           jDesktopPanel.add(bh).setVisible(true);
+//       
     }
 
     @SuppressWarnings("unchecked")
@@ -82,7 +88,9 @@ public class TrangChu extends javax.swing.JFrame {
         menuHoaDon.setLayout(menuHoaDonLayout);
         menuHoaDonLayout.setHorizontalGroup(
             menuHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuHoaDonLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         menuHoaDonLayout.setVerticalGroup(
             menuHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +119,7 @@ public class TrangChu extends javax.swing.JFrame {
         menuBanHang.setLayout(menuBanHangLayout);
         menuBanHangLayout.setHorizontalGroup(
             menuBanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         menuBanHangLayout.setVerticalGroup(
             menuBanHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +147,9 @@ public class TrangChu extends javax.swing.JFrame {
         menuSanPham.setLayout(menuSanPhamLayout);
         menuSanPhamLayout.setHorizontalGroup(
             menuSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(menuSanPhamLayout.createSequentialGroup()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 32, Short.MAX_VALUE))
         );
         menuSanPhamLayout.setVerticalGroup(
             menuSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +176,7 @@ public class TrangChu extends javax.swing.JFrame {
         menuKhuyenMai.setLayout(menuKhuyenMaiLayout);
         menuKhuyenMaiLayout.setHorizontalGroup(
             menuKhuyenMaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
         );
         menuKhuyenMaiLayout.setVerticalGroup(
             menuKhuyenMaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,6 +187,9 @@ public class TrangChu extends javax.swing.JFrame {
         menuNhanVien.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuNhanVien.setPreferredSize(new java.awt.Dimension(121, 75));
         menuNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuNhanVienMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 menuNhanVienMousePressed(evt);
             }
@@ -193,17 +206,30 @@ public class TrangChu extends javax.swing.JFrame {
         menuNhanVien.setLayout(menuNhanVienLayout);
         menuNhanVienLayout.setHorizontalGroup(
             menuNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 238, Short.MAX_VALUE)
+            .addGroup(menuNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menuNhanVienLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel13)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         menuNhanVienLayout.setVerticalGroup(
             menuNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+            .addGap(0, 75, Short.MAX_VALUE)
+            .addGroup(menuNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(menuNhanVienLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel13)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         menuKhachHang.setBackground(new java.awt.Color(13, 36, 51));
         menuKhachHang.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuKhachHang.setPreferredSize(new java.awt.Dimension(121, 75));
         menuKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuKhachHangMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 menuKhachHangMousePressed(evt);
             }
@@ -287,12 +313,14 @@ public class TrangChu extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(menuHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(menuSanPham, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(menuBanHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(menuKhuyenMai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-            .addComponent(menuNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-            .addComponent(menuKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-            .addComponent(menuThoat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
+            .addComponent(menuKhuyenMai, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+            .addComponent(menuNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+            .addComponent(menuKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+            .addComponent(menuThoat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
             .addComponent(menuThongKe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(menuBanHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 35, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
@@ -323,7 +351,7 @@ public class TrangChu extends javax.swing.JFrame {
         jDesktopPanel.setLayout(jDesktopPanelLayout);
         jDesktopPanelLayout.setHorizontalGroup(
             jDesktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1415, Short.MAX_VALUE)
+            .addGap(0, 1612, Short.MAX_VALUE)
         );
         jDesktopPanelLayout.setVerticalGroup(
             jDesktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,13 +364,14 @@ public class TrangChu extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jDesktopPanel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jDesktopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(171, 171, 171))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jDesktopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -363,98 +392,116 @@ public class TrangChu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuBanHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBanHangMousePressed
-       menuBanHang.setBackground(ClickedColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(ClickedColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuBanHangMousePressed
 
     private void menuHoaDonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuHoaDonMousePressed
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(ClickedColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(ClickedColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuHoaDonMousePressed
 
     private void menuSanPhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSanPhamMousePressed
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(ClickedColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(ClickedColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuSanPhamMousePressed
 
     private void menuKhuyenMaiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKhuyenMaiMousePressed
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(ClickedColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(ClickedColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuKhuyenMaiMousePressed
 
     private void menuNhanVienMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNhanVienMousePressed
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(ClickedColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(ClickedColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuNhanVienMousePressed
 
     private void menuKhachHangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKhachHangMousePressed
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(ClickedColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(ClickedColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuKhachHangMousePressed
 
     private void menuThongKeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuThongKeMousePressed
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(ClickedColor);
-       menuThoat.setBackground(DefaultColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(ClickedColor);
+        menuThoat.setBackground(DefaultColor);
     }//GEN-LAST:event_menuThongKeMousePressed
 
     private void menuThoatMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuThoatMouseReleased
-       menuBanHang.setBackground(DefaultColor);
-       menuHoaDon.setBackground(DefaultColor);
-       menuKhachHang.setBackground(DefaultColor);
-       menuNhanVien.setBackground(DefaultColor);
-       menuSanPham.setBackground(DefaultColor);
-       menuKhuyenMai.setBackground(DefaultColor);
-       menuThongKe.setBackground(DefaultColor);
-       menuThoat.setBackground(ClickedColor);
+        menuBanHang.setBackground(DefaultColor);
+        menuHoaDon.setBackground(DefaultColor);
+        menuKhachHang.setBackground(DefaultColor);
+        menuNhanVien.setBackground(DefaultColor);
+        menuSanPham.setBackground(DefaultColor);
+        menuKhuyenMai.setBackground(DefaultColor);
+        menuThongKe.setBackground(DefaultColor);
+        menuThoat.setBackground(ClickedColor);
     }//GEN-LAST:event_menuThoatMouseReleased
 
     private void menuBanHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBanHangMouseClicked
-        BanHang bh = new BanHang();
+        BanHang1 bh = new BanHang1();
         jDesktopPanel.removeAll();
         jDesktopPanel.add(bh).setVisible(true);
     }//GEN-LAST:event_menuBanHangMouseClicked
+
+    private void menuNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuNhanVienMouseClicked
+        // TODO add your handling code here:
+        QlNhanVienView bh = new QlNhanVienView();
+        jDesktopPanel.removeAll();
+        jDesktopPanel.add(bh).setVisible(true);
+    }//GEN-LAST:event_menuNhanVienMouseClicked
+
+    private void menuKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuKhachHangMouseClicked
+
+        QLKhachHang kh = new QLKhachHang();
+//        jDesktopPanel.remove(0);
+        jDesktopPanel.removeAll();
+//        jDesktopPanel.pai;
+//kh.pack();
+//        jDesktopPanel.setVisible(false);
+        jDesktopPanel.add(kh).setVisible(true);
+    }//GEN-LAST:event_menuKhachHangMouseClicked
 
     /**
      * @param args the command line arguments
