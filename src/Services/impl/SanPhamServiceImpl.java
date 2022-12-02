@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services.impl;
+package Services.impl;
 
 import DomainModels.SanPham;
 import java.util.List;
 import Responsitories.SanPhamRepository;
 import Services.SanPhamService;
+<<<<<<< HEAD
 
 import viewModels.SanPhamViewModel;
+=======
+import ViewModels.SanPhamViewModel;
+import java.util.ArrayList;
+>>>>>>> 228052f06dd401541c08ecbe466f429217f14f1d
 
 /**
  *
@@ -51,8 +56,17 @@ public class SanPhamServiceImpl implements SanPhamService {
     }
 
     @Override
+<<<<<<< HEAD
     public SanPham getspbyma1(String ma) {
         return this.sp.getspbyma1(ma);
     }
 
+=======
+    public ArrayList<SanPhamViewModel> getSPKM() {
+        return sp.getSPKM();
+    }
+
+   
+    
+>>>>>>> 228052f06dd401541c08ecbe466f429217f14f1d
 }

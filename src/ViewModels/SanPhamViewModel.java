@@ -3,13 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< HEAD
 package viewModels;
+=======
+package ViewModels;
+
+import java.awt.Checkbox;
+>>>>>>> 228052f06dd401541c08ecbe466f429217f14f1d
 
 /**
  *
  * @author tuyen
  */
 public class SanPhamViewModel {
+<<<<<<< HEAD
 
     private String ID;
     private String maSP;
@@ -32,6 +39,39 @@ public class SanPhamViewModel {
 
     public String getID() {
         return ID;
+=======
+    private String id;
+    private String masp;
+    private String tensp;
+    private Checkbox select;
+    
+    public SanPhamViewModel() {
+    }
+
+    public SanPhamViewModel(String id, String masp, String tensp, Checkbox select) {
+        this.id = id;
+        this.masp = masp;
+        this.tensp = tensp;
+        this.select = select;
+    }
+
+    public SanPhamViewModel(String id, String masp, String tensp) {
+        this.id = id;
+        this.masp = masp;
+        this.tensp = tensp;
+    }
+
+    public Checkbox getSelect() {
+        return select;
+    }
+
+    public void setSelect(Checkbox select) {
+        this.select = select;
+    }
+
+    public String getId() {
+        return id;
+>>>>>>> 228052f06dd401541c08ecbe466f429217f14f1d
     }
 
     public void setID(String ID) {

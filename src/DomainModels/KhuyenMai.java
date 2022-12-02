@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class KhuyenMai {
     
+    private String idKM;
     private String maKM;
     private String tenKM;
     private String hinhThuc;
@@ -24,7 +25,8 @@ public class KhuyenMai {
     public KhuyenMai() {
     }
 
-    public KhuyenMai(String maKM, String tenKM, String hinhThuc, Date thoiGianBatDau, Date thoiGianKetThuc, float giamGia, int trangThai, String moTa) {
+    public KhuyenMai(String idKM, String maKM, String tenKM, String hinhThuc, Date thoiGianBatDau, Date thoiGianKetThuc, float giamGia, int trangThai, String moTa) {
+        this.idKM = idKM;
         this.maKM = maKM;
         this.tenKM = tenKM;
         this.hinhThuc = hinhThuc;
@@ -33,6 +35,14 @@ public class KhuyenMai {
         this.giamGia = giamGia;
         this.trangThai = trangThai;
         this.moTa = moTa;
+    }
+
+    public String getIdKM() {
+        return idKM;
+    }
+
+    public void setIdKM(String idKM) {
+        this.idKM = idKM;
     }
 
     public String getMaKM() {
@@ -99,6 +109,5 @@ public class KhuyenMai {
         this.moTa = moTa;
     }
 
-   
     
 }
